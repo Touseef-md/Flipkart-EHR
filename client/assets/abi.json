@@ -3,6 +3,52 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "hipAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "addNewHIP",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "addNewHIU",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "patientAddr",
 				"type": "address"
 			},
@@ -13,6 +59,24 @@
 			}
 		],
 		"name": "addNewPatient",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "patientAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "hipAddr",
+				"type": "address"
+			}
+		],
+		"name": "addRecord",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -40,6 +104,92 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "hipAddr",
+				"type": "address"
+			}
+		],
+		"name": "getHIP",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			}
+		],
+		"name": "getHIU",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hipAddr",
+				"type": "address"
+			}
+		],
+		"name": "getIsHIP",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			}
+		],
+		"name": "getIsHIU",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "patientAddr",
 				"type": "address"
 			}
@@ -53,6 +203,90 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "patientAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			}
+		],
+		"name": "giveConsent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "patientAddr",
+				"type": "address"
+			}
+		],
+		"name": "hasConsent",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "patientAddr",
+				"type": "address"
+			}
+		],
+		"name": "requestRecords",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "patientAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "hiuAddr",
+				"type": "address"
+			}
+		],
+		"name": "revokeConsent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

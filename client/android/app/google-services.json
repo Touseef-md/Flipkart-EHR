@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "570043824343",
+    "project_id": "flipkart-ehr-8593c",
+    "storage_bucket": "flipkart-ehr-8593c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570043824343:android:ef3a5bd3db01cea9be5892",
+        "android_client_info": {
+          "package_name": "com.example.flipkart_ehr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570043824343-p4orn92lpet720tf9pvmbp5ooj56lvfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlgNRMdojIC6UXzfrmnsns3bSmoKPH9Ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570043824343-p4orn92lpet720tf9pvmbp5ooj56lvfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

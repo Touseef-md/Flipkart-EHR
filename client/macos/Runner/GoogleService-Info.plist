@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>570043824343-m31lrmu8vr7h0e0t8dtq1u1v3or6ocpo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.570043824343-m31lrmu8vr7h0e0t8dtq1u1v3or6ocpo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBESB0IIKJt0ln0uSDQpCkYD8jS9Oif4q4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>570043824343</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flipkartEhr.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>flipkart-ehr-8593c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flipkart-ehr-8593c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:570043824343:ios:300f2bebb4f422d1be5892</string>
+</dict>
+</plist>

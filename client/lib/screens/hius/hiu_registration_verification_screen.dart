@@ -1,20 +1,23 @@
+// import 'package:flipkart_ehr/provider/account_keys_provider.dart';
 import 'package:flipkart_ehr/provider/eth_utils_provider.dart';
-import 'package:flipkart_ehr/screens/hips/hip_home_screen.dart';
+import 'package:flipkart_ehr/provider/hiu_provider.dart';
+// import 'package:flipkart_ehr/screens/hips/hip_home_screen.dart';
+import 'package:flipkart_ehr/screens/hius/hiu_home_screen.dart';
 import 'package:flipkart_ehr/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HIPRegistrationVerificationScreen extends StatefulWidget {
-  static const routeName = '/hip_regis_veri';
-  const HIPRegistrationVerificationScreen({super.key});
+class HIURegistrationVerificationScreen extends StatefulWidget {
+  static const routeName = '/hiu_regis_veri';
+  const HIURegistrationVerificationScreen({super.key});
 
   @override
-  State<HIPRegistrationVerificationScreen> createState() =>
-      _HIPRegistrationVerificationScreenState();
+  State<HIURegistrationVerificationScreen> createState() =>
+      _HIURegistrationVerificationScreenState();
 }
 
-class _HIPRegistrationVerificationScreenState
-    extends State<HIPRegistrationVerificationScreen> {
+class _HIURegistrationVerificationScreenState
+    extends State<HIURegistrationVerificationScreen> {
   TextEditingController _controller1 = TextEditingController();
   TextEditingController _controller2 = TextEditingController();
 
@@ -56,12 +59,17 @@ class _HIPRegistrationVerificationScreenState
 
   Future logic(BuildContext context, WidgetRef ref) async {
     if (_step == 0) {
-      if (await ref.read(ethUtilsNotifierProvider.notifier).getIsHIP()) {
-        Navigator.pushReplacementNamed(context, HIPHomeScreen.routeName);
+      if (await ref.read(ethUtilsNotifierProvider.notifier).getIsHIU()) {
+        await ref.read(hiuNotifierProvider.notifier).getHIU();
+        Navigator.pushReplacementNamed(
+          context,
+          HIUHomeScreen.routeName,
+        );
       } else {
         _controller1.text = '';
         _controller2.text = '';
-
+        // ref.read(AccountAddressProvider.notifier).state = _controller1.text;
+        // ref.read(AccountPrivateKeyProvider.notifier).state = _controller2.text;
         setState(() {
           _step = 1;
         });
@@ -69,16 +77,24 @@ class _HIPRegistrationVerificationScreenState
     } else if (_step == 1) {
       await ref
           .read(ethUtilsNotifierProvider.notifier)
-          .addNewHIP(_controller1Value, _controller2Value);
+          .addNewHIU(_controller1Value, _controller2Value);
+      await ref
+          .read(hiuNotifierProvider.notifier)
+          .addNewHIU(_controller1Value, _controller2Value);
+      // await ref.read(hiuNotifierProvider.notifier).hiu;
+      // .name=_controller1Value;
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          duration: Duration(
+            seconds: 1,
+          ),
           content: Text(
             'Added Succeffully.',
           ),
         ),
       );
-      Navigator.pushReplacementNamed(context, HIPHomeScreen.routeName);
+      Navigator.pushReplacementNamed(context, HIUHomeScreen.routeName);
     }
   }
 
@@ -100,7 +116,7 @@ class _HIPRegistrationVerificationScreenState
                 vertical: 10,
               ),
               child: Text(
-                'Create/Verify ID',
+                'Create/Verify HIU ID',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
@@ -146,7 +162,7 @@ class _HIPRegistrationVerificationScreenState
                     controller: _controller1,
                     style: Theme.of(context).textTheme.bodyLarge,
                     decoration: InputDecoration(
-                        hintText: 'Enter the name of HIP',
+                        hintText: 'Enter the name of HIU',
                         hintStyle: Theme.of(context).textTheme.labelLarge),
                   ),
                 ),
@@ -159,7 +175,7 @@ class _HIPRegistrationVerificationScreenState
                     controller: _controller2,
                     style: Theme.of(context).textTheme.bodyLarge,
                     decoration: InputDecoration(
-                        hintText: 'Enter the email of HIP',
+                        hintText: 'Enter the email of HIU',
                         hintStyle: Theme.of(context).textTheme.labelLarge),
                   ),
                 ),

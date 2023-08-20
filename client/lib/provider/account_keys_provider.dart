@@ -11,3 +11,8 @@ final AccountPrivateKeyProvider = StateProvider<String>(
     return dotenv.env['PRIVATE_KEY']!;
   },
 );
+final entityProvider = StateProvider<int>(
+  (ref) {
+    return -1;
+  },
+);

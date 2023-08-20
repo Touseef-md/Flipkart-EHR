@@ -80,7 +80,7 @@ class EthereumUtils {
         from: EthereumAddress.fromHex(callerAddress),
         gasPrice: EtherAmount.inWei(
           BigInt.from(
-            500000000,
+            50000000000,
           ),
         ),
       );
@@ -105,6 +105,7 @@ class EthereumUtils {
     }
   }
 
+//Functions related to Patients
   Future getIsPatient(String callerAddress) async {
     print('GEtis Patient called...');
     final result = await callViewFunction(
@@ -127,6 +128,91 @@ class EthereumUtils {
         [EthereumAddress.fromHex(callerAddress), aadhaarNum], privateKey);
     print('Result of addNewPatient ethUtil :${result}');
     return result;
+  }
+
+  Future approveConsent(
+      String callerAddress, String privateKey, String hiuAddress) async {
+    final result = await callTxFunction(
+        'giveConsent',
+        callerAddress,
+        [
+          EthereumAddress.fromHex(callerAddress),
+          EthereumAddress.fromHex(hiuAddress)
+        ],
+        privateKey);
+    print('Result of approveConsent ethUtil:${result}');
+    return result;
+  }
+
+  Future addRecord(
+      String callerAddress, String privateKey, String patientAddress) async {
+    final result = await callTxFunction(
+        'addRecord',
+        callerAddress,
+        [
+          EthereumAddress.fromHex(patientAddress),
+          EthereumAddress.fromHex(callerAddress)
+        ],
+        privateKey);
+    print('Result of addRecord ethUtil:${result}');
+    return result;
+  }
+
+//Functions related to HIPs
+
+  Future getIsHIP(String callerAddress) async {
+    final result = await callViewFunction(
+        'getIsHIP', [EthereumAddress.fromHex(callerAddress)]);
+    print('Result of getIsHIP:${result}');
+    return result[0];
+  }
+
+  Future addNewHIP(String callerAddress, String privateKey, String name,
+      String email) async {
+    final result = await callTxFunction('addNewHIP', callerAddress,
+        [EthereumAddress.fromHex(callerAddress), name, email], privateKey);
+    print('Result of addNewHIP ethUtil :${result}');
+    return result;
+  }
+
+  Future getIsHIU(String callerAddress) async {
+    final result = await callViewFunction(
+        'getIsHIU', [EthereumAddress.fromHex(callerAddress)]);
+    print('Result of getIsHIU:${result}');
+    return result[0];
+  }
+
+  Future addNewHIU(String callerAddress, String privateKey, String name,
+      String email) async {
+    final result = await callTxFunction('addNewHIU', callerAddress,
+        [EthereumAddress.fromHex(callerAddress), name, email], privateKey);
+    print('Result of addNewHIU ethUtil :${result}');
+    return result;
+  }
+
+  Future hasConsent(String callerAddress, String patientAddr) async {
+    final result = await callViewFunction('hasConsent', [
+      EthereumAddress.fromHex(callerAddress),
+      EthereumAddress.fromHex(patientAddr)
+    ]);
+    return result[0];
+  }
+
+  Future getHIU(String callerAddress) async {
+    final result = await callViewFunction(
+        'getHIU', [EthereumAddress.fromHex(callerAddress)]);
+    print('Result of getHIU is : ${result}');
+    return result;
+  }
+
+  Future requestRecords(String callerAddress, String patientAddress) async {
+    final result = await callViewFunction('requestRecords', [
+      EthereumAddress.fromHex(callerAddress),
+      EthereumAddress.fromHex(patientAddress)
+    ]);
+    print('Result of requestRecords:${result}');
+    // EthereumUtils
+    return result[0];
   }
 
   Future<DeployedContract> getDeployedContract() async {

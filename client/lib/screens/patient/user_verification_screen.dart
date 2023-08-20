@@ -155,33 +155,33 @@ class _UserVerificationScreenState
           Column(
             children: [
               if (_otp == 0) ...[
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 10,
-                //     vertical: 5,
-                //   ),
-                //   child: TextField(
-                //     controller: _controller1,
-                //     style: Theme.of(context).textTheme.bodyLarge,
-                //     decoration: InputDecoration(
-                //         hintText: 'Enter Ethereum Account Address',
-                //         hintStyle: Theme.of(context).textTheme.labelLarge),
-                //   ),
-                // ),
-                // // if (_otp == 0)
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 10,
-                //     vertical: 5,
-                //   ),
-                //   child: TextField(
-                //     controller: _controller2,
-                //     style: Theme.of(context).textTheme.bodyLarge,
-                //     decoration: InputDecoration(
-                //         hintText: 'Enter the Private Key of the Account',
-                //         hintStyle: Theme.of(context).textTheme.labelLarge),
-                //   ),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                  child: TextField(
+                    controller: _controller1,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    decoration: InputDecoration(
+                        hintText: 'Enter Ethereum Account Address',
+                        hintStyle: Theme.of(context).textTheme.labelLarge),
+                  ),
+                ),
+                // if (_otp == 0)
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                  child: TextField(
+                    controller: _controller2,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    decoration: InputDecoration(
+                        hintText: 'Enter the Private Key of the Account',
+                        hintStyle: Theme.of(context).textTheme.labelLarge),
+                  ),
+                ),
               ],
               if (_otp == 1)
                 Padding(
